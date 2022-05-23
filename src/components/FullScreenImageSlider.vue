@@ -1,13 +1,30 @@
 <script>
-import SliderItem from './SliderItem.vue'
+import SliderItem from './SliderItem.vue';
+let intervalAnim = null;
 export default {
   components: {
     SliderItem
   },
   data() {
     return {
-      activeSlideIndex: 0
+      activeSlideIndex: 1
     }
+  },
+  mounted() {
+    intervalAnim = setInterval(() => {
+      //increment active slide index by one
+      this.activeSlideIndex++
+
+      //if incremented value exceed images length - 1, then
+      //set it back to zero
+      if (this.activeSlideIndex > this.images.length - 1) {
+        this.activeSlideIndex = 0;
+      }
+    }, 3000);
+  },
+  unmounted() {
+    //clear interval whenever unmounted...
+    clearInterval(intervalAnim);
   },
   props: ['images']
 }
