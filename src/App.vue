@@ -1,24 +1,28 @@
 <script>
-import Button from './components/Button.vue';
-import Navbar from './components/Navbar.vue';
-import Typography from './components/Typography.vue';
+import FullScreenImageSlider from "./components/FullScreenImageSlider.vue";
+import './assets/base.css';
+
+//images
+import bg1 from "./assets/images/bg1.png";
+import batman from "./assets/images/batman.png";
 
 export default {
   components: {
-    Button,
-    Navbar,
-    Typography
+    FullScreenImageSlider,
   },
+  data() {
+    return {
+      images: [bg1, batman]
+    }
+  }
 };
 </script>
 
 <template>
   <div>
-    <div>{{ count }}</div>
-    <Navbar></Navbar>
-    <Button></Button>
+    <FullScreenImageSlider :images="images" />
   </div>
 </template>
 
-<style>
+<style scoped>
 </style>
