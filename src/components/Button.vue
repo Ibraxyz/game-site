@@ -14,7 +14,10 @@ export default {
 </script>
 
 <template>
-  <button class="purple_bg">{{ text }}</button>
+  <button :class="variant === 'filled' ? 'purple_bg' : 'transparent_bg'">
+    <span style="margin-right: 10px;">{{ text }}</span>
+    <slot></slot>
+  </button>
 </template>
 
 <style>
@@ -37,5 +40,19 @@ export default {
   /* Medley/Neutral */
 
   color: #ffffff;
+}
+
+.transparent_bg {
+  background-color: rgba(255, 0, 0, 0.0);
+  padding: 18.5px 40px;
+  color: #ffffff;
+  box-shadow: none;
+  border: 0;
+  cursor: pointer;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
 }
 </style>

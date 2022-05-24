@@ -30,5 +30,6 @@
 .navbar ul li {
   margin: 0px 20px;
   cursor: pointer;
+  color: #fff;
 }
 </style>

@@ -1,19 +1,22 @@
 <script>
-import SliderItem from './SliderItem.vue';
+import SliderItem from "./SliderItem.vue";
 let intervalAnim = null;
+let gradAnimTime = null;
 export default {
   components: {
-    SliderItem
+    SliderItem,
   },
   data() {
     return {
-      activeSlideIndex: 1
-    }
+      activeSlideIndex: 1,
+      time: 0,
+    };
   },
   mounted() {
+
     intervalAnim = setInterval(() => {
       //increment active slide index by one
-      this.activeSlideIndex++
+      this.activeSlideIndex++;
 
       //if incremented value exceed images length - 1, then
       //set it back to zero
@@ -21,30 +24,41 @@ export default {
         this.activeSlideIndex = 0;
       }
     }, 3000);
+
+    gradAnimTime = setInterval(() => {
+      this.time++;
+      if (this.time > 2) {
+        this.time = 0;
+      }
+    }, 1000)
+
   },
   unmounted() {
     //clear interval whenever unmounted...
     clearInterval(intervalAnim);
+    clearInterval(gradAnimTime);
   },
-  props: ['images']
-}
+  props: ["images"],
+};
 </script>
 
 <template>
   <div class="fsis-wrapper">
     <div class="fsis-images">
       <SliderItem v-for="(image, index) in images" :url="image"
-        :isDisplayed="index === this.activeSlideIndex ? true : false" />
+        :isDisplayed="index === this.activeSlideIndex ? true : false" :isBeginToGrad="time >= 2" />
     </div>
     <div class="fsis-overlay"></div>
-    <div class="fsis-content"></div>
+    <div class="fsis-content">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .fsis-wrapper {
   position: relative;
-  height: 100vh;
+  height:100vh;
   background-color: #000000;
   z-index: 1;
 }
