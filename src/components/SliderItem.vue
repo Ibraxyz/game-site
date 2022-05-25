@@ -6,8 +6,11 @@ export default {
 </script>
 
 <template>
-  <div class="slider-item" :class="[{ 'display-none': !isDisplayed }, { 'fade-out': isBeginToGrad }]"
-    :style="{ backgroundImage: `url(${url})` }"></div>
+  <div
+    class="slider-item"
+    :class="[{ 'display-none': !isDisplayed }, { 'fade-out': isBeginToGrad }]"
+    :style="{ backgroundImage: `url(${url})` }"
+  ></div>
 </template>
 
 <style scoped>

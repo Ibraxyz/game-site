@@ -15,7 +15,7 @@ export default {
 
 <template>
   <button :class="variant === 'filled' ? 'purple_bg' : 'transparent_bg'">
-    <span style="margin-right: 10px;">{{ text }}</span>
+    <span style="margin-right: 10px">{{ text }}</span>
     <slot></slot>
   </button>
 </template>
@@ -43,7 +43,7 @@ export default {
 }
 
 .transparent_bg {
-  background-color: rgba(255, 0, 0, 0.0);
+  background-color: rgba(255, 0, 0, 0);
   padding: 18.5px 40px;
   color: #ffffff;
   box-shadow: none;

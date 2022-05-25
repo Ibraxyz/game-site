@@ -1,14 +1,31 @@
-<script></script>
+<script>
+import logo1 from "../assets/images/Vector.png";
+import SearchBar from "./SearchBar.vue";
+
+export default {
+  components: {
+    SearchBar
+  },
+  data() {
+    return {
+      logo: logo1
+    }
+  }
+}
+</script>
 
 <template>
   <nav class="navbar">
     <ul>
-      <li style="margin-right: auto">LOGO</li>
+      <li style="margin-right: auto;display:flex;justify-content:center;align-items:center"><img :src="logo" alt=""
+          style="margin-right:8px" />GameSite</li>
       <li>Home</li>
       <li>About</li>
       <li>Privacy Policy</li>
       <li>Our Shop</li>
-      <li>Search</li>
+      <li>
+        <SearchBar />
+      </li>
     </ul>
   </nav>
 </template>

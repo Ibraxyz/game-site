@@ -1,7 +1,11 @@
-<script></script>
+<script>
+export default {
+  props: ['text']
+}
+</script>
 
 <template>
-  <h1 class="large">Connecting Players & Games in an Immersive environment.</h1>
+  <h1 class="large">{{ text }}</h1>
 </template>
 
 <style>
