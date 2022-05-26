@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar.vue";
 import DownArrow from "./assets/images/arrow_downward_24px.svg";
 import Container from "./components/Container.vue";
 import GradientBackground from "./components/GradientBackground.vue";
+import Card from "./components/Card.vue";
 
 //logos
 import logo1 from "./assets/images/steam 1.png";
@@ -31,7 +32,8 @@ export default {
     Button,
     Navbar,
     Container,
-    GradientBackground
+    GradientBackground,
+    Card
   },
   data() {
     return {
@@ -54,7 +56,7 @@ export default {
           <Navbar />
           <div class="centered-content">
             <TwoLineText text="GAMEWORLD DISTRIBUTORS" />
-            <Typography text="Connecting Players & Games in an Immersive environment." />
+            <Typography text="Connecting Players & Games in an Immersive environment." variant="h1" />
             <br />
             <Button text="Join Now !" variant="filled"></Button>
           </div>
@@ -69,11 +71,18 @@ export default {
 
     <!-- section 2 -->
     <GradientBackground>
-      <div style="text-align: center;">
-        <img v-for="logo in logos" :src="logo" alt="" style="margin:32px 27px 20px 32px" />
-        <TwoLineText accent="true" text="What we do" />
-        <div style="max-width:532px;margin:auto">
-          <Typography text="Meeting the needs of players across the world" />
+      <div class="align-center">
+        <div style="margin-bottom:171px">
+          <img v-for="logo in logos" :src="logo" alt="" style="margin:32px 27px 20px 32px" />
+        </div>
+        <div style="max-width:532px;margin:auto;padding-bottom:80px">
+          <TwoLineText accent="true" text="What we do" />
+          <Typography text="Meeting the needs of players across the world" variant="h2" />
+        </div>
+        <div class="card-wrapper" style="padding-bottom:200px">
+          <Card :img="images[0]" variant="green-top" mainTitle="Title one goes here.." />
+          <Card :img="images[1]" variant="blue-top" mainTitle="Title two goes here.." />
+          <Card :img="images[2]" variant="red-top" mainTitle="Title three goes here.." />
         </div>
       </div>
     </GradientBackground>
@@ -82,4 +91,13 @@ export default {
 </template>
 
 <style scoped>
+.align-center {
+  text-align: center;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
